@@ -1,0 +1,67 @@
+#api call for addition
+###
+POST http://127.0.0.1:8000/addition/
+Content-Type: application/json
+
+{
+    "num1":100,
+    "num2":200
+}
+
+
+# api call for subtraction
+###
+POST http://127.0.0.1:8000/subtraction/
+Content-Type: application/json
+
+{
+    "num1":100,
+    "num2":50
+}
+
+#api call for multiplication
+###
+POST http://127.0.0.1:8000/multiply/ 
+Content-Type: application/json
+
+{
+    "num1":12,
+    "num2":4
+}
+
+# api call for division
+###
+POST http://127.0.0.1:8000/division/ 
+Content-Type: application/json
+
+{
+    "num1":100,
+    "num2":4
+}
+
+# api call for factorial of a number
+###
+POST http://127.0.0.1:8000/factorial/  
+Content-Type: application/json
+
+{
+    "num":5
+}
+
+# api call for checking a num is prime or not
+###
+POST http://127.0.0.1:8000/prime/
+Content-Type: application/json
+
+{
+    "num":29
+}
+
+# api call for perfect no check
+###
+POST http://127.0.0.1:8000/perfectnumber/
+Content-Type: application/json
+
+{
+    "num":28
+}

@@ -1,0 +1,170 @@
+=========================================================
+DJANGO CALCULATION APPLICATION API DOCUMENTATION
+Base URL: https://api.yourdomain.com/v1/calculator
+=========================================================
+
+1. ADDITION
+Calculates the sum of two numbers.
+
+* URL: /add/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "num1": 15,
+  "num2": 25
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "addition",
+  "num1": 15,
+  "num2": 25,
+  "result": 40
+}
+
+---------------------------------------------------------
+2. SUBTRACTION
+Calculates the difference between two numbers.
+
+* URL: /subtract/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "num1": 50,
+  "num2": 18
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "subtraction",
+  "num1": 50,
+  "num2": 18,
+  "result": 32
+}
+
+---------------------------------------------------------
+3. MULTIPLICATION
+Calculates the product of two numbers.
+
+* URL: /multiply/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "num1": 12,
+  "num2": 4
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "multiplication",
+  "num1": 12,
+  "num2": 4,
+  "result": 48
+}
+
+---------------------------------------------------------
+4. DIVISION
+Divides the first number by the second number.
+
+* URL: /divide/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "num1": 100,
+  "num2": 4
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "division",
+  "num1": 100,
+  "num2": 4,
+  "result": 25.0
+}
+* Error Response (Division by Zero):
+  - Code: 400 Bad Request
+  - Content:
+{
+  "error": "Division by zero is not allowed."
+}
+
+---------------------------------------------------------
+5. FACTORIAL
+Calculates the factorial of a non-negative integer.
+
+* URL: /factorial/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "number": 5
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "factorial",
+  "number": 5,
+  "result": 120
+}
+* Error Response (Negative Integer):
+  - Code: 400 Bad Request
+  - Content:
+{
+  "error": "Factorial is only defined for non-negative integers."
+}
+
+---------------------------------------------------------
+6. PRIME NUMBER CHECK
+Determines whether a given integer is a prime number.
+
+* URL: /prime/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "number": 29
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "prime_check",
+  "number": 29,
+  "is_prime": true
+}
+
+---------------------------------------------------------
+7. PERFECT NUMBER CHECK
+Checks if a positive integer is equal to the sum of its proper positive divisors.
+
+* URL: /perfect-number/
+* Method: POST
+* Auth Required: No
+* Request Body:
+{
+  "number": 28
+}
+* Success Response:
+  - Code: 200 OK
+  - Content:
+{
+  "operation": "perfect_number_check",
+  "number": 28,
+  "is_perfect": true,
+  "divisors": [1, 2, 4, 7, 14],
+  "divisors_sum": 28
+}
+
+=========================================================
+Note on Rate Limiting & Security:
+To protect server resource capacity against heavy computation requests (such as massive factorials or large prime verifications), throttle these endpoints using Django REST Framework's throttling classes (e.g., AnonRateThrottle). Higher throughput limits can be unlocked by supplying an authentication token in the header (Authorization: Bearer <token>).
+=========================================================
